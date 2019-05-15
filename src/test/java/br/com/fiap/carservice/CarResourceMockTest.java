@@ -9,6 +9,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 // use mockito to run tests
 @RunWith(MockitoJUnitRunner.class)
 public class CarResourceMockTest {
@@ -16,7 +18,7 @@ public class CarResourceMockTest {
     @Mock // mock resource
     private CarResource carResource;
 
-    // test should return a car given a color string name
+    // test should return car given color string name
     @Test // junit test
     public void shouldFindCarByColor(){
         // Stub
@@ -32,10 +34,18 @@ public class CarResourceMockTest {
         // create empty list of Car
         List<Car> cars = Arrays.asList(car);
 
-        //teste mockito
-        // quando for ao carResource e procurar pela cor
-        // retornar os carros encontrados na lista cars
+        //test mockito language
+        // when gone to carResource and look for color
+        // return all cars found into cars array
         Mockito.when(carResource.findCarByColor(color)).thenReturn(cars);
+
+        // execute test
+        // populate list with cars found by color at resource
+        List<Car> carsResponse = carResource.findCarByColor(color);
+
+        //assertion car response color and model is equal color and model
+        assertEquals(carsResponse.get(0).getColor(), color);
+        assertEquals(carsResponse.get(0).getModel(), model);
     }
 
 
