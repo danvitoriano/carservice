@@ -1,15 +1,19 @@
 package br.com.fiap.carservice;
 
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 // entity database class persistence
 @Entity
+@EnableWebMvc
 public class Car {
 
     @Id // primary key
-    @GeneratedValue // auto generated increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto generated increment
     private int id;
 
     // field attributes
