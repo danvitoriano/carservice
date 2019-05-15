@@ -35,7 +35,7 @@ public class CarResourceMockTest {
         //teste mockito
         // quando for ao carResource e procurar pela cor
         // retornar os carros encontrados na lista cars
-        Mockito.when(carResource.findCarByColor(color).thenReturn(cars));
+        Mockito.when(carResource.findCarByColor(color)).thenReturn(cars);
     }
 
 
